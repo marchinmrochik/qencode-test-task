@@ -15,8 +15,7 @@ import style from './styles.module.scss'
 
 const SetNewPassword = () => {
     const navigate = useNavigate();
-    const { secret } = useParams();
-    const token = useSelector(selectAuthToken);
+    const { secret, token } = useParams();
     const [showPassword, setShowPassword] = useState(true);
     const [showConfirmPassword, setShowConfirmPassword] = useState(true);
     const {

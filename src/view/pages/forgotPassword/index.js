@@ -28,9 +28,11 @@ const ForgotPassword = () => {
             }
             const result = await passwordReset(dataSend).unwrap();
 
-            navigate(`/set-new-password?secret=${result.secret}`);
+            navigate(`/set-new-password?secret=${result.secret}&token=${result.token}`);
         } catch (e) {
             console.error(e)
+        } finally {
+            navigate(`/set-new-password`);
         }
     }
 
