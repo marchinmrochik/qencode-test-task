@@ -1,15 +1,13 @@
 import React, {useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {useSelector} from 'react-redux';
 import {useSetPasswordMutation} from "../../../store/services/userApi";
-import {selectAuthToken} from "../../../store/features/selectors";
 import {Button, Field} from "../../components";
 import AuthLayout from "../../layouts/auth";
 import {transformErrors} from "../../../utils/transformErrors";
 import {PASSWORD_PATTERN_VALIDATION} from "../../../utils/constants";
 
-import {icEye, icEyeClose, icGoogle, icLogo, icGithub} from '../../../assets/icons'
+import {icEye, icEyeClose} from '../../../assets/icons'
 
 import style from './styles.module.scss'
 
