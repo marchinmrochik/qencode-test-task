@@ -19,6 +19,7 @@ import style from './styles.module.scss'
 const SignUp = () => {
     const dispatch = useDispatch();
     const [showPassword, setShowPassword] = useState(true);
+    const [showPasswordField, setShowPasswordField] = useState(false);
     const [getAccessToken] = useGetAccessTokenMutation();
     const {data: userProfile} = useGetUserProfileQuery();
     const {
@@ -34,6 +35,10 @@ const SignUp = () => {
     }, []);
 
     const onSubmit = async (data) => {
+        if(!showPasswordField) {
+            setShowPasswordField(true);
+            return
+        }
         try {
             const result = await signUp(data).unwrap();
 
@@ -106,28 +111,33 @@ const SignUp = () => {
                     }}
                     error={errors?.email ? 'Email wrong' : transformErrors(error)?.email}
                 />
-                <div>
-                    <Field
-                        id="password"
-                        type={showPassword ? "password" : "text"}
-                        name="password"
-                        placeholder="Password"
-                        inputClassName={style.inputPassword}
-                        register={register}
-                        inputProps={{
-                            required: true,
-                            pattern: PASSWORD_PATTERN_VALIDATION
-                        }}
-                        error={
-                            errors?.password ?
-                                ' The password fields should be at least 8 characters long.'
-                                : transformErrors(error)?.password
-                        }
-                        icon={showPassword ? icEye : icEyeClose}
-                        handleIcon={() => setShowPassword(!showPassword)}
-                        altIcon="icon eye"
-                    />
-                </div>
+                {
+                    showPasswordField && <>
+                        <Field
+                            id="password"
+                            type={showPassword ? "password" : "text"}
+                            name="password"
+                            placeholder="Password"
+                            inputClassName={style.inputPassword}
+                            register={register}
+                            inputProps={{
+                                required: true,
+                                pattern: PASSWORD_PATTERN_VALIDATION
+                            }}
+                            error={
+                                errors?.password ?
+                                    ' The password fields should be at least 8 characters long.'
+                                    : transformErrors(error)?.password
+                            }
+                            icon={showPassword ? icEye : icEyeClose}
+                            handleIcon={() => setShowPassword(!showPassword)}
+                            altIcon="icon eye"
+                        />
+                        <Link to="/forgot-password" className={style.linkForgotPassword}>
+                            Forgot your password?
+                        </Link>
+                    </>
+                }
                 <Button
                     className={style.buttonSubmit}
                     disabled={isLoading}
