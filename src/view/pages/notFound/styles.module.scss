@@ -1,0 +1,14 @@
+@import "../../../styles/variables";
+
+.notFound {
+  text-align: center;
+  padding: 20px;
+
+  h2 {
+    color: $red;
+  }
+
+  p {
+    margin-top: 10px;
+  }
+}

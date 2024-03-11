@@ -1,0 +1,23 @@
+@import "../../../styles/variables";
+
+.input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 48px;
+  font-weight: 400;
+  font-size: $fontSizeMedium;
+  line-height: 20px;
+  border: 1.2px $mediumGray solid;
+  border-radius: 6px;
+  background: $white;
+  padding: 0 12px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    outline: none;
+    border-color: $blue;
+    box-shadow: 0 0 0 4px lighten($blue, 40%);
+  }
+}

@@ -1,0 +1,47 @@
+@import "../../../styles/variables";
+
+.container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 25px;
+  display: block;
+  text-align: left;
+}
+
+.label {
+  font-size: $fontSizeMedium;
+  font-weight: 500;
+  line-height: 21px;
+  color: $darkBlue;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+
+.error {
+  margin: 0;
+  position: absolute;
+  bottom: 4px;
+  color: $red;
+  font-size: $fontSizeStandard;
+}
+
+.errorRelative {
+  position: relative;
+  margin-top: 8px;
+  margin-bottom: -20px;
+}
+
+.inputError {
+  border-color: $red;
+}
+
+.icon {
+  position: absolute;
+  top: 14px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.iconPosition {
+  top: 43px
+}
