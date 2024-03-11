@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/qencode-test-task/static/css/main.f518ddf4.css",
-    "main.js": "/qencode-test-task/static/js/main.002b2f6d.js",
+    "main.js": "/qencode-test-task/static/js/main.48da3d75.js",
     "static/js/453.205f9825.chunk.js": "/qencode-test-task/static/js/453.205f9825.chunk.js",
     "static/media/BasisGrotesquePro-LightItalic.eot": "/qencode-test-task/static/media/BasisGrotesquePro-LightItalic.a5b06bd5c4375475c2fb.eot",
     "static/media/BasisGrotesquePro-Italic.eot": "/qencode-test-task/static/media/BasisGrotesquePro-Italic.b8715fc99364bb64bf08.eot",
@@ -50,11 +50,11 @@
     "static/media/ic-google.svg": "/qencode-test-task/static/media/ic-google.b6daf002bcba57d7328f86037098f866.svg",
     "index.html": "/qencode-test-task/index.html",
     "main.f518ddf4.css.map": "/qencode-test-task/static/css/main.f518ddf4.css.map",
-    "main.002b2f6d.js.map": "/qencode-test-task/static/js/main.002b2f6d.js.map",
+    "main.48da3d75.js.map": "/qencode-test-task/static/js/main.48da3d75.js.map",
     "453.205f9825.chunk.js.map": "/qencode-test-task/static/js/453.205f9825.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f518ddf4.css",
-    "static/js/main.002b2f6d.js"
+    "static/js/main.48da3d75.js"
   ]
 }
