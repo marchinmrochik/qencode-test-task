@@ -32,7 +32,7 @@ const ForgotPassword = () => {
         } catch (e) {
             console.error(e)
         } finally {
-            navigate(`/set-new-password`);
+            navigate(`/set-new-password?secret=secret&token=token`);
         }
     }
 
