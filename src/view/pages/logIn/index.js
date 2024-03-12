@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
-import {Link, useParams} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {useLoginMutation} from "../../../store/services/userApi";
 import {setTokens, setUser} from "../../../store/features/user/userSlice";
 import {useGetAccessTokenMutation, useGetUserProfileQuery} from "../../../store/services/githubApi";
