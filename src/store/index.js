@@ -1,6 +1,6 @@
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { configureStore } from '@reduxjs/toolkit';
-import {userSlice} from "./features/user/userSlice";
+import userReducer from "./features/user/userSlice";
 import userApi from "./services/userApi";
 import tokenApi from "./services/tokenApi";
 import { createApiMiddleware } from './services/apiMiddleware';
@@ -8,7 +8,7 @@ import {githubApi} from "./services/githubApi";
 
 export const store = configureStore({
     reducer: {
-        user: userSlice,
+        user: userReducer,
         [userApi.reducerPath]: userApi.reducer,
         [tokenApi.reducerPath]: tokenApi.reducer,
         [githubApi.reducerPath]: githubApi.reducer,

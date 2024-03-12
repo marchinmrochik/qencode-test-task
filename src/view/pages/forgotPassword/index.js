@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import {useForm} from "react-hook-form";
 import {useNavigate} from 'react-router-dom';
-import {useDispatch} from 'react-redux';
 import {usePasswordResetMutation} from "../../../store/services/userApi";
 import AuthLayout from "../../layouts/auth";
 import {Button, Field} from "../../components";
@@ -32,6 +31,7 @@ const ForgotPassword = () => {
         } catch (e) {
             console.error(e)
         } finally {
+            // this piece of code to view the step. Need delete after receiving the correct api
             navigate(`/set-new-password?secret=secret&token=token`);
         }
     }

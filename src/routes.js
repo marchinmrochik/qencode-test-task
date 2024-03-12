@@ -1,8 +1,8 @@
-import {createBrowserRouter} from "react-router-dom";
+import {createHashRouter} from "react-router-dom";
 import {ForgotPassword, LogIn, SetNewPassword, SignUp, NotFound} from "./view/pages";
 import {PrivateOutlet} from "./utils/privateOutlet";
 
-const routes = createBrowserRouter([
+const routes = createHashRouter([
     {
         path: "/login",
         element: <LogIn/>,

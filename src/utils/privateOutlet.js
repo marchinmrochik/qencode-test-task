@@ -1,13 +1,13 @@
 import { Navigate, Outlet, useLocation } from 'react-router-dom'
-import { useAuth } from '../hooks/useAuth'
+import {useSelector} from "react-redux";
+import {selectIsLoggedIn} from "../store/features/selectors";
 
 export function PrivateOutlet() {
-    const auth = useAuth()
-    const location = useLocation()
+    const IsLoggedIn = useSelector(selectIsLoggedIn);
 
-    return auth.user ? (
+    return IsLoggedIn ? (
         <Outlet/>
     ) : (
-        <Navigate to="/login" state={{ from: location }} />
+        <Navigate to="/login"/>
     )
 }
