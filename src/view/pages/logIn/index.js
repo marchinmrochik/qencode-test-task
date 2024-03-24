@@ -4,7 +4,7 @@ import {useForm} from "react-hook-form";
 import {useDispatch} from 'react-redux';
 import {useLoginMutation} from "../../../store/services/userApi";
 import {setTokens, setUser} from "../../../store/features/user/userSlice";
-import {useGetAccessTokenMutation, useGetUserProfileQuery} from "../../../store/services/githubApi";
+import {useGetAccessTokenMutation, githubApi} from "../../../store/services/githubApi";
 import {useGoogleLogin} from '@react-oauth/google';
 import {Button, Field} from "../../components";
 import AuthLayout from "../../layouts/auth";
@@ -20,7 +20,6 @@ const LogIn = () => {
     const [showPassword, setShowPassword] = useState(true);
     const [showPasswordField, setShowPasswordField] = useState(false);
     const [getAccessToken] = useGetAccessTokenMutation();
-    const {data: userProfile} = useGetUserProfileQuery();
     const {
         register,
         handleSubmit,
@@ -28,7 +27,6 @@ const LogIn = () => {
     } = useForm();
 
     const [login, {isLoading, error}] = useLoginMutation();
-
 
     useEffect(() => {
         handleGitHubCallback();
@@ -64,7 +62,7 @@ const LogIn = () => {
         try {
             const {data} = await getAccessToken(code);
             const accessToken = data.access_token;
-            await userProfile(accessToken).unwrap();
+            await githubApi.endpoints.getUserProfile.initiate(accessToken).unwrap();
         } catch (error) {
             console.error(error)
         }

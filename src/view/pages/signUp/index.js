@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import {useForm} from "react-hook-form";
 import {useDispatch} from 'react-redux';
 import {useSignUpMutation} from "../../../store/services/userApi";
-import {useGetAccessTokenMutation, useGetUserProfileQuery} from "../../../store/services/githubApi";
+import {useGetAccessTokenMutation, githubApi} from "../../../store/services/githubApi";
 import {useGoogleLogin} from "@react-oauth/google";
 import {setTokens, setUser} from "../../../store/features/user/userSlice";
 import {Button, Field} from "../../components";
@@ -21,7 +21,6 @@ const SignUp = () => {
     const [showPassword, setShowPassword] = useState(true);
     const [showPasswordField, setShowPasswordField] = useState(false);
     const [getAccessToken] = useGetAccessTokenMutation();
-    const {data: userProfile} = useGetUserProfileQuery();
     const {
         register,
         handleSubmit,
@@ -64,7 +63,7 @@ const SignUp = () => {
         try {
             const {data} = await getAccessToken(code);
             const accessToken = data.access_token;
-            await userProfile(accessToken).unwrap();
+            await githubApi.endpoints.getUserProfile.initiate(accessToken).unwrap();
         } catch (error) {
             console.error(error)
         }
